@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa's Braai House - Authentic South African Braai Delivered in Port Elizabeth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.95) 0%, rgba(255, 107, 53, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600') center/cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .logo-img {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .location {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: #ffd700;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #25D366 0%, #1ea952 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #1ea952 0%, #25D366 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.4rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(210, 105, 30, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #d2691e);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(210, 105, 30, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature h3 {
+            color: #d2691e;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .menu-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #ffffff 0%, #faf7f5 100%);
+        }
+
+        .menu-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #d2691e;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .menu-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #d2691e);
+            border-radius: 2px;
+        }
+
+        .menu-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #ff6b35;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .menu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(210, 105, 30, 0.15);
+            border-left-color: #d2691e;
+        }
+
+        .menu-item h4 {
+            color: #d2691e;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-item p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .gallery-section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #d2691e;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #d2691e);
+            border-radius: 2px;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(210, 105, 30, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.3) 0%, rgba(255, 107, 53, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .delivery-info {
+            background: linear-gradient(135deg, #ff6b35 0%, #d2691e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .delivery-info h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .delivery-info p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-weight: 300;
+        }
+
+        footer a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffa07a;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                max-width: 200px;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 40px 20px;
+            }
+
+            .menu-section h2,
+            .delivery-info h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 16px 35px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                max-width: 160px;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/ymShbSGL/unnamed.webp" alt="Melissa's Braai House" class="logo-img">
+            </div>
+            <p class="tagline">Authentic South African Braai, Delivered Fresh to Your Door</p>
+            <p class="location">
+                <span>📍</span>
+                <span>Serving Port Elizabeth</span>
+            </p>
+            <a href="https://wa.me/27639689622?text=Hi%20Melissa's%20Braai%20House!%20I'd%20like%20to%20place%20an%20order." class="cta-button">
+                <span class="whatsapp-icon">💬</span>
+                <span>Order Now on WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Hot, fresh braai delivered straight to your doorstep across Port Elizabeth</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🥩</div>
+            <h3>Quality Meats</h3>
+            <p>Premium cuts, expertly grilled over open flames for that authentic braai flavor</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">👨‍🍳</div>
+            <h3>Traditional Recipes</h3>
+            <p>Melissa's secret marinades and time-tested cooking methods passed down through generations</p>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Our Signature Braai Selections</h2>
+        <p class="menu-subtitle">Handcrafted with love, grilled to perfection</p>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h4>🥩 Boerewors</h4>
+                <p>Traditional South African sausage, perfectly spiced and grilled to perfection. Served with your choice of sides.</p>
+            </div>
+            <div class="menu-item">
+                <h4>🍖 Lamb Chops</h4>
+                <p>Tender lamb chops marinated in Melissa's signature blend of herbs and spices, chargrilled to order.</p>
+            </div>
+            <div class="menu-item">
+                <h4>🍗 Peri-Peri Chicken</h4>
+                <p>Succulent chicken pieces basted with fiery peri-peri sauce, grilled until golden and crispy.</p>
+            </div>
+            <div class="menu-item">
+                <h4>🥓 Pork Ribs</h4>
+                <p>Fall-off-the-bone ribs glazed with our house-made BBQ sauce, slow-cooked over the braai.</p>
+            </div>
+            <div class="menu-item">
+                <h4>🥩 Steak Selection</h4>
+                <p>Choose from rump, sirloin, or T-bone. All steaks are aged and grilled to your preference.</p>
+            </div>
+            <div class="menu-item">
+                <h4>🌽 Braai Sides</h4>
+                <p>Pap and chakalaka, garlic bread, grilled mielies, potato salad, and fresh garden salads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Our Delicious Creations</h2>
+        <p class="gallery-subtitle">Fresh from the braai to your table</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/XxLWDtTn/unnamed-1.webp" alt="Melissa's Braai House - Delicious braai meal" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/fGM3pTyy/unnamed-2.webp" alt="Melissa's Braai House - Grilled meats" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/Swd2HJrW/unnamed-3.webp" alt="Melissa's Braai House - Fresh braai" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/m5qCYZTf/unnamed-4.webp" alt="Melissa's Braai House - Traditional South African food" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/TMn8dhkk/unnamed-5.webp" alt="Melissa's Braai House - Quality meats" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/wFR39j5X/unnamed-6.webp" alt="Melissa's Braai House - Braai specialties" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-info">
+        <h2>Ready to Enjoy Authentic Braai?</h2>
+        <p>Order from Melissa's Braai House today and experience the taste of traditional South African braai delivered fresh to your home in Port Elizabeth. We use only the finest ingredients and time-honored techniques to bring you an unforgettable dining experience.</p>
+        <a href="https://wa.me/27639689622?text=Hi%20Melissa's%20Braai%20House!%20I'd%20like%20to%20place%20an%20order." class="cta-button">
+            <span class="whatsapp-icon">💬</span>
+            <span>Order on WhatsApp Now</span>
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Melissa's Braai House | Port Elizabeth, South Africa</p>
+        <p>Contact us: <a href="https://wa.me/27639689622">+27 63 968 9622</a></p>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">🔥 Bringing the braai to you, one flame at a time 🔥</p>
+    </footer>
+</body>
+</html>
