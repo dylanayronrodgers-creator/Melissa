@@ -72,50 +72,6 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        .hero-content::before {
-            content: '✨';
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3rem;
-            animation: sparkle-top 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
-        }
-
-        .hero-content::after {
-            content: '⭐';
-            position: absolute;
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3rem;
-            animation: sparkle-bottom 3s ease-in-out infinite 1.5s;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
-        }
-
-        @keyframes sparkle-top {
-            0%, 100% { 
-                opacity: 1; 
-                transform: translateX(-50%) scale(1) rotate(0deg);
-            }
-            50% { 
-                opacity: 0.6; 
-                transform: translateX(-50%) scale(1.2) rotate(180deg);
-            }
-        }
-
-        @keyframes sparkle-bottom {
-            0%, 100% { 
-                opacity: 1; 
-                transform: translateX(-50%) scale(1) rotate(0deg);
-            }
-            50% { 
-                opacity: 0.6; 
-                transform: translateX(-50%) scale(1.2) rotate(-180deg);
-            }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -131,72 +87,6 @@
             margin-bottom: 30px;
             animation: fadeIn 1.2s ease-out;
             position: relative;
-        }
-
-        .logo-container::before {
-            content: '🔥';
-            position: absolute;
-            font-size: 5rem;
-            top: -40px;
-            left: -50px;
-            animation: fire-flicker-left 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 30px rgba(255, 140, 0, 1)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
-        }
-
-        .logo-container::after {
-            content: '🔥';
-            position: absolute;
-            font-size: 5rem;
-            top: -40px;
-            right: -50px;
-            animation: fire-flicker-right 2s ease-in-out infinite 1s;
-            filter: drop-shadow(0 0 30px rgba(255, 140, 0, 1)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
-        }
-
-        @keyframes fire-flicker-left {
-            0%, 100% { 
-                opacity: 1; 
-                transform: scale(1) translateY(0); 
-                filter: drop-shadow(0 0 30px rgba(255, 140, 0, 1)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
-            }
-            25% { 
-                opacity: 0.8; 
-                transform: scale(1.15) translateY(-5px); 
-                filter: drop-shadow(0 0 40px rgba(255, 140, 0, 1)) drop-shadow(0 0 60px rgba(255, 215, 0, 1));
-            }
-            50% { 
-                opacity: 0.9; 
-                transform: scale(0.95) translateY(3px); 
-                filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.9)) drop-shadow(0 0 45px rgba(255, 215, 0, 0.7));
-            }
-            75% { 
-                opacity: 1; 
-                transform: scale(1.1) translateY(-3px); 
-                filter: drop-shadow(0 0 35px rgba(255, 140, 0, 1)) drop-shadow(0 0 55px rgba(255, 215, 0, 0.9));
-            }
-        }
-
-        @keyframes fire-flicker-right {
-            0%, 100% { 
-                opacity: 1; 
-                transform: scale(1) translateY(0); 
-                filter: drop-shadow(0 0 30px rgba(255, 140, 0, 1)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
-            }
-            25% { 
-                opacity: 0.9; 
-                transform: scale(0.95) translateY(3px); 
-                filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.9)) drop-shadow(0 0 45px rgba(255, 215, 0, 0.7));
-            }
-            50% { 
-                opacity: 0.8; 
-                transform: scale(1.15) translateY(-5px); 
-                filter: drop-shadow(0 0 40px rgba(255, 140, 0, 1)) drop-shadow(0 0 60px rgba(255, 215, 0, 1));
-            }
-            75% { 
-                opacity: 1; 
-                transform: scale(1.05) translateY(-2px); 
-                filter: drop-shadow(0 0 32px rgba(255, 140, 0, 1)) drop-shadow(0 0 52px rgba(255, 215, 0, 0.85));
-            }
         }
 
         .logo-img {
